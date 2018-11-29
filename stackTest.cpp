@@ -1,15 +1,15 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include "arrayStack.h"
+#include "stack.h"
 
 using namespace std;
 
 int main()
 {
 
-  arrayStack<int> intStack;
-  arrayStack<string> stringStack;
+  stack<int> intStack;
+  stack<string> stringStack;
 
   cout << "Push 10 elements" << endl;
   for (int i=0; i<10; i++){
