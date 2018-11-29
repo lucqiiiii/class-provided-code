@@ -1,34 +1,41 @@
-#ifndef NODE_H
-#define NODE_H
-
 #include <cassert>
 #include <cstdlib>
 using namespace std;
 
-class node
+// Homework Assignment #3: Toolkit for Doubly-linked list
+class dnode
 {
 public:
     typedef double value_type;
     // constructor
-    node(const value_type& d=value_type(), node* l=NULL)
+    node(const value_type& d=value_type(), node* l=NULL, node* p=NULL)
     {
         data_field = d;
         link_field = l;
+        prev_field = p;
     }
     
     // modifiers
     void set_data(const value_type& d){ data_field = d;}
     void set_link(node* l) {link_field = l;}
-    
+    void set_prev(node* p) (prev_field = p;);
     // observers
     value_type data() const {return data_field;}
+
+    // forward links
     node* link() {return link_field;};
     const node* link() const {return link_field;};
+
+    // backward links
+    node* prev() {return prev_field;};
+    const node* prev() const {return prev_field;};
     
 private:
     value_type data_field;
-    // pointer
+    // forward pointer
     node* link_field;
+    // backward pointer
+    node* prev_field;
 };
 
 // Helper Methods
@@ -101,38 +108,24 @@ void list_copy(node* src, node*& head) {
 
 void list_head_remove(node*& head)
 {
-    node* deleted_node = head;
-    head = head->link();
-    
-    deleted_node->set_data(node::value_type());
-    deleted_node->set_link(NULL);
-    delete deleted_node;
+
+  
 }
 
-void list_remove(node* prev_ptr)
+vooid list_remove(node* prev_ptr)
 {
-    node* deleted_node = prev_ptr->link();
-    
-    // set the link to skip over the node
-    // to be removed
-    prev_ptr->set_link(deleted_node->link());
-    
-    // clean up the node
-    deleted_node->set_data(node::value_type());
-    deleted_node->set_link(NULL);
-    // deallocate the node back to the memory
-    delete deleted_node;
+
+
+
+
 }
 
 void list_clear(node*& head) 
 {
 
-    while (head!=NULL) {
-        list_head_remove(head);
-    }
+   
 
 }
 
 
 
-#endif
