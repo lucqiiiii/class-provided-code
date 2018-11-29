@@ -108,7 +108,11 @@ void list_head_remove(node*& head)
     deleted_node->set_link(NULL);
     delete deleted_node;
 }
-
+void list_remove_this_node(node*& head, node* this_ptr){
+    
+    // GOOD EXERCISE FOR MIDTERM #2
+    
+}
 void list_remove(node* prev_ptr)
 {
     node* deleted_node = prev_ptr->link();

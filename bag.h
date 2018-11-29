@@ -1,6 +1,6 @@
 #ifndef BAG_H
 #define BAG_H
-#include node.h
+#include "node.h"
 
 using namespace std;
 
@@ -31,5 +31,5 @@ class bag
  private:
   node* head;
   size_type num_nodes;
-
+};
 #endif
